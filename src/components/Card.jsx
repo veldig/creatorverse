@@ -5,7 +5,7 @@ function Card({ creator }) {
 
   return (
     <article>
-      {imageURL && <img src={imageURL} alt={name} />}
+      {imageURL && <img src={imageURL} alt={name} onError={(e) => e.target.style.display='none'} />}
       <hgroup>
         <h3>
           <Link to={`/creator/${id}`}>{name}</Link>
