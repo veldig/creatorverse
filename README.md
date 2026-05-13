@@ -4,7 +4,7 @@ Submitted by: **Martin Vizcaino**
 
 About this web app: **A full-stack app to browse, add, edit, and delete your favorite content creators — from YouTubers and Twitch streamers to TikTokers and beyond!**
 
-Time spent: **X** hours
+Time spent: **10** hours
 
 ## Required Features
 
