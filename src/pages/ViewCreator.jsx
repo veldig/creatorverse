@@ -11,7 +11,7 @@ function ViewCreator() {
       const { data } = await supabase
         .from('creators')
         .select()
-        .eq('id', id)
+        .eq('name', decodeURIComponent(id))
         .single()
       setCreator(data)
     }
@@ -34,7 +34,7 @@ function ViewCreator() {
         </ul>
         <ul>
           <li>
-            <Link to={`/creator/${id}/edit`} role="button">Edit</Link>
+            <Link to={`/creator/${encodeURIComponent(creator.name)}/edit`} role="button">Edit</Link>
           </li>
         </ul>
       </nav>

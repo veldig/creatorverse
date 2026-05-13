@@ -8,7 +8,7 @@ function Card({ creator }) {
       {imageURL && <img src={imageURL} alt={name} onError={(e) => e.target.style.display='none'} />}
       <hgroup>
         <h3>
-          <Link to={`/creator/${id}`}>{name}</Link>
+          <Link to={`/creator/${encodeURIComponent(name)}`}>{name}</Link>
         </h3>
         <p>
           <a href={url} target="_blank" rel="noreferrer">
@@ -18,10 +18,10 @@ function Card({ creator }) {
       </hgroup>
       <p>{description}</p>
       <footer>
-        <Link to={`/creator/${id}`} role="button" className="secondary outline">
+        <Link to={`/creator/${encodeURIComponent(name)}`} role="button" className="secondary outline">
           View
         </Link>{' '}
-        <Link to={`/creator/${id}/edit`} role="button">
+        <Link to={`/creator/${encodeURIComponent(name)}/edit`} role="button">
           Edit
         </Link>
       </footer>

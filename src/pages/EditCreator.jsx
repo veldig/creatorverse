@@ -17,7 +17,7 @@ function EditCreator() {
       const { data } = await supabase
         .from('creators')
         .select()
-        .eq('id', id)
+        .eq('name', decodeURIComponent(id))
         .single()
       if (data) setForm(data)
     }
@@ -30,13 +30,13 @@ function EditCreator() {
 
   async function handleUpdate(e) {
     e.preventDefault()
-    await supabase.from('creators').update(form).eq('id', id)
-    navigate(`/creator/${id}`)
+    await supabase.from('creators').update(form).eq('name', decodeURIComponent(id))
+    navigate(`/creator/${encodeURIComponent(form.name)}`)
   }
 
   async function handleDelete() {
     if (!window.confirm(`Delete ${form.name}? This cannot be undone.`)) return
-    await supabase.from('creators').delete().eq('id', id)
+    await supabase.from('creators').delete().eq('name', decodeURIComponent(id))
     navigate('/')
   }
 
